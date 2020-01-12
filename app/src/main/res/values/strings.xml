@@ -14,4 +14,8 @@
     <string name="button_alarm">Select alarm date and time</string>
     <string name="title_activity_edit_text_note">Edit Text Note : </string>
     <string name="hint_edit_text_note">Enter your note</string>
+    <string name="title_activity_view_text_note">ViewTextNoteActivity</string>
+    <string name="view_no_notification">No notification.</string>
+    <string name="view_no_alarm">No alarm.</string>
+    <string name="view_empty_note">Empty note.</string>
 </resources>
