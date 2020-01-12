@@ -70,5 +70,5 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_gravity="center"/>
     </LinearLayout>
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
