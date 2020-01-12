@@ -3,7 +3,15 @@
     <string name="action_about">About</string>
     <string name="no_notes">No notes found.</string>
     <string name="title_activity_add_note">AddNoteActivity</string>
-    <string name="note_name">Name:</string>
+    <string name="note_name">Name of the new note:</string>
     <string name="note_name_hint">Enter name</string>
     <string name="new_note_view_title">New note properties</string>
+    <string name="radio_text_note">Text note</string>
+    <string name="radio_todo_list">To-do list</string>
+    <string name="checkbox_notification">Reminder notification</string>
+    <string name="checkbox_alarm">Reminder alarm</string>
+    <string name="button_notification">Select notification date and time</string>
+    <string name="button_alarm">Select alarm date and time</string>
+    <string name="title_activity_edit_text_note">Edit Text Note : </string>
+    <string name="hint_edit_text_note">Enter your note</string>
 </resources>
