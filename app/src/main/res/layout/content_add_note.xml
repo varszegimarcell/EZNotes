@@ -39,16 +39,17 @@
         app:layout_constraintTop_toBottomOf="@+id/editText">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton_text_note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/radio_text_note"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/editText"
+            android:checked="true"/>
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButton_to_do_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/radio_todo_list"
@@ -56,12 +57,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton_text_note"
             app:layout_constraintVertical_bias="0.0" />
     </RadioGroup>
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_notification"
@@ -76,10 +77,10 @@
         android:text="@string/button_notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_notification" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBox_alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_alarm"
@@ -94,7 +95,7 @@
         android:text="@string/button_alarm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_alarm" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

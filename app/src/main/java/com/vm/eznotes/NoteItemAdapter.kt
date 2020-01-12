@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.os.persistableBundleOf
 
 class NoteItemAdapter(val context : Context, val itemsList : List<Note>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var infater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var gridView = View(context)
+        var gridView : View
         if (convertView == null){
             gridView = infater.inflate(R.layout.note_item_view, null)
             var textview : TextView = gridView.findViewById(R.id.note_item_name)
