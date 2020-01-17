@@ -108,7 +108,8 @@
                 android:text="@string/button_notification"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox_notification" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_notification"
+                android:enabled="@{NewNote.isnotification}"/>
 
             <CheckBox
                 android:id="@+id/checkBox_alarm"
@@ -127,7 +128,8 @@
                 android:text="@string/button_alarm"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox_alarm" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_alarm"
+                android:enabled="@{NewNote.isalarm}"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

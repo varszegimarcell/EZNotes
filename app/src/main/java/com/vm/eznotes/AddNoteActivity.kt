@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -39,17 +40,40 @@ class AddNoteActivity : AppCompatActivity() {
         var hours : Int = calendar.get(Calendar.HOUR_OF_DAY)
         var minutes : Int = calendar.get(Calendar.MINUTE)
 
+        val checkbox_notification = findViewById<CheckBox>(R.id.checkBox_notification)
+
+        checkbox_notification.setOnClickListener{ viev ->
+            binding.invalidateAll()
+        }
+
+        val checkbox_alarm = findViewById<CheckBox>(R.id.checkBox_alarm)
+
+        checkbox_alarm.setOnClickListener{ viev ->
+            binding.invalidateAll()
+        }
+
         val button_notification = findViewById<Button>(R.id.button_notification)
 
         button_notification.setOnClickListener { view ->
-            val date_dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            val date_dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hours, minutes ->
+                    button_notification.text = year.toString() + "." + (month + 1).toString() + "." + day.toString() + ". " + hours.toString() + ":" + minutes.toString()
+                }, hours, minutes, true)
+                time_dialog.show()
             }, year, month, day)
             date_dialog.show()
-            val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hours, minutes ->
+        }
 
-            }, hours, minutes, true)
-            time_dialog.show()
-            button_notification.text = year.toString() + "." + month.toString() + "." + day.toString() + " " + hours.toString() + ":" + minutes.toString()
+        val button_alarm = findViewById<Button>(R.id.button_alarm)
+
+        button_alarm.setOnClickListener { view ->
+            val date_dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hours, minutes ->
+                    button_alarm.text = year.toString() + "." + (month + 1).toString() + "." + day.toString() + ". " + hours.toString() + ":" + minutes.toString()
+                }, hours, minutes, true)
+                time_dialog.show()
+            }, year, month, day)
+            date_dialog.show()
         }
     }
 
