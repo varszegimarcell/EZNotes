@@ -6,6 +6,9 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.GridView
+import android.widget.TextView
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,6 +18,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        var notesGrid : GridView = findViewById(R.id.NotesGrid)
+
+        notesGrid.adapter = NoteItemAdapter(this, Notes.Items)
+
+        if(Notes.Items.count() > 0){
+            var no_notes_message : TextView = findViewById(R.id.no_notes_message)
+            no_notes_message.visibility = View.INVISIBLE
+        }
 
         fab.setOnClickListener { view ->
             val intent = Intent(this, AddNoteActivity::class.java)
