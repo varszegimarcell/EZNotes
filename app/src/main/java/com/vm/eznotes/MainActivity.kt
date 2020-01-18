@@ -2,7 +2,6 @@ package com.vm.eznotes
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -26,6 +25,13 @@ class MainActivity : AppCompatActivity() {
         if(Notes.Items.count() > 0){
             var no_notes_message : TextView = findViewById(R.id.no_notes_message)
             no_notes_message.visibility = View.INVISIBLE
+        }
+
+        notesGrid.setOnItemClickListener{adapter, view, pos, id ->
+            val name = view.findViewById<TextView>(R.id.note_item_name).text
+            val intent = Intent(this, ViewTextNoteActivity::class.java)
+            intent.putExtra("name", name.toString())
+            startActivity(intent)
         }
 
         fab.setOnClickListener { view ->
