@@ -10,5 +10,12 @@ class Notes {
             }
             return false
         }
+        fun getNoteItemByName(str : String) : Note{
+            val iterator = Items.iterator()
+            iterator.forEach { note ->
+                if(note.Name == str) return note
+            }
+            throw NoSuchElementException()
+        }
     }
 }
