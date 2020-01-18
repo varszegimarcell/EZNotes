@@ -19,6 +19,6 @@
     <string name="view_no_alarm">No alarm.</string>
     <string name="view_empty_note">Empty note.</string>
     <string name="name_already_in_use">An another note already exists with this name. Please use an another name.</string>
-    <string name="created_successfully"> was created successfully.</string>
+    <string name="created_successfully">  was created successfully.</string>
     <string name="no_name_entered">You must enter a name for your new note.</string>
 </resources>
