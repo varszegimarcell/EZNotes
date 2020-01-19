@@ -21,4 +21,7 @@
     <string name="name_already_in_use">An another note already exists with this name. Please use an another name.</string>
     <string name="created_successfully">  was created successfully.</string>
     <string name="no_name_entered">You must enter a name for your new note.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_view_todo_list">ViewTodoListActivity</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.vm.eznotes
+package com.vm.eznotes.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.GridView
 import android.widget.TextView
+import com.vm.eznotes.adapters.NoteItemAdapter
+import com.vm.eznotes.models.Notes
+import com.vm.eznotes.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,7 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         var notesGrid : GridView = findViewById(R.id.NotesGrid)
 
-        notesGrid.adapter = NoteItemAdapter(this, Notes.Items)
+        notesGrid.adapter = NoteItemAdapter(
+            this,
+            Notes.Items
+        )
 
         if(Notes.Items.count() > 0){
             var no_notes_message : TextView = findViewById(R.id.no_notes_message)

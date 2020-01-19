@@ -6,14 +6,14 @@
 
     <data>
         <variable
-            name="NewNote"
-            type="com.vm.eznotes.AddNoteViewModel" />
+            name="newnote"
+            type="com.vm.eznotes.viewModels.AddNoteViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddNoteActivity">
+        tools:context=".activities.AddNoteActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".AddNoteActivity"
+            tools:context=".activities.AddNoteActivity"
             tools:showIn="@layout/activity_add_note">
 
             <TextView
@@ -57,7 +57,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                android:text="@={NewNote.name}"/>
+                android:text="@={newnote.name}"/>
 
             <RadioGroup
                 android:id="@+id/radioGroup"
@@ -75,7 +75,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editText"
-                    android:checked="@={NewNote.istextnote}"/>
+                    android:checked="@={newnote.istextnote}"/>
 
                 <RadioButton
                     android:id="@+id/radioButton_to_do_list"
@@ -88,7 +88,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/radioButton_text_note"
                     app:layout_constraintVertical_bias="0.0"
-                    android:checked="@={NewNote.istodolist}"/>
+                    android:checked="@={newnote.istodolist}"/>
             </RadioGroup>
 
             <CheckBox
@@ -99,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-                android:checked="@={NewNote.isnotification}"/>
+                android:checked="@={newnote.isnotification}"/>
 
             <Button
                 android:id="@+id/button_notification"
@@ -109,7 +109,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox_notification"
-                android:enabled="@{NewNote.isnotification}"/>
+                android:enabled="@{newnote.isnotification}"/>
 
             <CheckBox
                 android:id="@+id/checkBox_alarm"
@@ -119,7 +119,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_notification"
-                android:checked="@={NewNote.isalarm}"/>
+                android:checked="@={newnote.isalarm}"/>
 
             <Button
                 android:id="@+id/button_alarm"
@@ -129,7 +129,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox_alarm"
-                android:enabled="@{NewNote.isalarm}"/>
+                android:enabled="@{newnote.isalarm}"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

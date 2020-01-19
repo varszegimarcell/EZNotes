@@ -7,13 +7,13 @@
     <data>
         <variable
             name="note"
-            type="com.vm.eznotes.TextNote" />
+            type="com.vm.eznotes.models.TextNote" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ViewTextNoteActivity">
+        tools:context=".activities.ViewTextNoteActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".ViewTextNoteActivity"
+            tools:context=".activities.ViewTextNoteActivity"
             tools:showIn="@layout/activity_view_text_note">
 
             <ScrollView

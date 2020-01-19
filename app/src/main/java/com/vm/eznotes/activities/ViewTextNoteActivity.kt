@@ -1,9 +1,12 @@
-package com.vm.eznotes
+package com.vm.eznotes.activities
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.vm.eznotes.models.Notes
+import com.vm.eznotes.R
+import com.vm.eznotes.models.TextNote
 import com.vm.eznotes.databinding.ActivityViewTextNoteBinding
 
 import kotlinx.android.synthetic.main.activity_view_text_note.*
@@ -15,7 +18,9 @@ class ViewTextNoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_view_text_note)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_view_text_note
+        )
         val name = intent.getStringExtra("name")
         note = Notes.getNoteItemByName(name) as TextNote
         binding.note = note
@@ -23,8 +28,10 @@ class ViewTextNoteActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val intent = Intent(this, EditTextNoteActivity::class.java)
+            intent.putExtra("name", name.toString())
+            startActivity(intent)
+            finish()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

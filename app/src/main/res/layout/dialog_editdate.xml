@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="data"
+            type="com.vm.eznotes.viewModels.EditDateDialogViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <CheckBox
+            android:id="@+id/checkBox_notification_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/checkbox_notification"
+            android:checked="@={data.isnotification}"/>
+
+        <Button
+            android:id="@+id/button_notification_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{data.notificationDate}"
+            android:enabled="@{data.isnotification}"/>
+
+        <CheckBox
+            android:id="@+id/checkBox_alarm_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/checkbox_alarm"
+            android:checked="@={data.isalarm}"/>
+
+        <Button
+            android:id="@+id/button_alarm_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{data.alarmDate}"
+            android:enabled="@{data.isalarm}"/>
+
+    </LinearLayout>
+</layout>

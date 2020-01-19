@@ -10,34 +10,38 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ViewTextNoteActivity"
+            android:name=".activities.ViewTodoListActivity"
+            android:label="@string/title_activity_view_todo_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.ViewTextNoteActivity"
             android:label="@string/title_activity_view_text_note"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vm.eznotes.MainActivity" />
+                android:value="com.vm.eznotes.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".EditTextNoteActivity"
+            android:name=".activities.EditTextNoteActivity"
             android:label="@string/title_activity_edit_text_note"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vm.eznotes.ViewTextNoteActivity" />
+                android:value="com.vm.eznotes.activities.ViewTextNoteActivity" />
         </activity>
         <activity
-            android:name=".AddNoteActivity"
+            android:name=".activities.AddNoteActivity"
             android:label="@string/title_activity_add_note"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vm.eznotes.MainActivity" />
+                android:value="com.vm.eznotes.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

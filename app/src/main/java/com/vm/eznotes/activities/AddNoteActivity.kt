@@ -1,7 +1,6 @@
-package com.vm.eznotes
+package com.vm.eznotes.activities
 
 import android.app.DatePickerDialog
-import android.app.Notification
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +10,11 @@ import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.vm.eznotes.*
+import com.vm.eznotes.models.Notes
+import com.vm.eznotes.models.TextNote
+import com.vm.eznotes.models.ToDoList
+import com.vm.eznotes.viewModels.AddNoteViewModel
 import com.vm.eznotes.databinding.ActivityAddNoteBinding
 
 import kotlinx.android.synthetic.main.activity_add_note.*
@@ -20,15 +24,17 @@ class AddNoteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddNoteBinding
 
-    private val newNote = AddNoteViewModel()
+    private val newnote = AddNoteViewModel()
     private var notificationDate : String = ""
     private var alarmDate : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_note)
-        binding.newNote = newNote
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_add_note
+        )
+        binding.newnote = newnote
 
         toolbar.setTitle(R.string.new_note_view_title)
         setSupportActionBar(toolbar)
@@ -69,9 +75,9 @@ class AddNoteActivity : AppCompatActivity() {
 
         button_notification.setOnClickListener { view ->
             val date_dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hours, minutes ->
-                    notificationDate = year.toString() + "." + (month + 1).toString() + "." + day.toString() + ". " + hours.toString() + ":" + minutes.toString()
-                    button_alarm.text = notificationDate
+                val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hour, minute ->
+                    notificationDate = year.toString() + "." + (month + 1).toString() + "." + day.toString() + ". " + hour.toString() + ":" + minute.toString()
+                    button_notification.text = notificationDate
                     nyear = year
                     nmonth = month
                     nday = day
@@ -87,8 +93,8 @@ class AddNoteActivity : AppCompatActivity() {
 
         button_alarm.setOnClickListener { view ->
             val date_dialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hours, minutes ->
-                    alarmDate = year.toString() + "." + (month + 1).toString() + "." + day.toString() + ". " + hours.toString() + ":" + minutes.toString()
+                val time_dialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener{view, hour, minute ->
+                    alarmDate = year.toString() + "." + (month + 1).toString() + "." + day.toString() + ". " + hour.toString() + ":" + minute.toString()
                     button_alarm.text = alarmDate
                     ayear = year
                     amonth = month
@@ -102,21 +108,23 @@ class AddNoteActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            if(newNote.name != null && newNote.name.isNotEmpty()){
-                if(!Notes.isNameAlreadyInUse(newNote.name)){
-                    if(newNote.istextnote){
-                        var note = TextNote(newNote.name)
-                        if(newNote.isnotification) note.notificationDate = Date( nyear, nmonth, nday, nhour, nminute)
-                        if(newNote.isalarm) note.alarmDate = Date(ayear, amonth, aday, ahour, aminute)
+            if(newnote.name != null && newnote.name.isNotEmpty()){
+                if(!Notes.isNameAlreadyInUse(newnote.name)){
+                    if(newnote.istextnote){
+                        var note = TextNote(newnote.name)
+                        if(newnote.isnotification) note.notificationDate = Date( nyear, nmonth, nday, nhour, nminute)
+                        if(newnote.isalarm) note.alarmDate = Date(ayear, amonth, aday, ahour, aminute)
                         Notes.Items.add(note)
                     }
-                    if(newNote.istodolist){
-                        var note = ToDoList(newNote.name)
-                        if(newNote.isnotification) note.notificationDate = Date( nyear, nmonth, nday, nhour, nminute)
-                        if(newNote.isalarm) note.alarmDate = Date(ayear, amonth, aday, ahour, aminute)
+                    if(newnote.istodolist){
+                        var note = ToDoList(newnote.name)
+                        if(newnote.isnotification) note.notificationDate = Date( nyear, nmonth, nday, nhour, nminute)
+                        if(newnote.isalarm) note.alarmDate = Date(ayear, amonth, aday, ahour, aminute)
                         Notes.Items.add(note)
                     }
-                    Toast.makeText(applicationContext,newNote.name + resources.getString(R.string.created_successfully),Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext,newnote.name + resources.getString(
+                        R.string.created_successfully
+                    ),Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()

@@ -1,4 +1,4 @@
-package com.vm.eznotes
+package com.vm.eznotes.models
 
 import java.util.*
 

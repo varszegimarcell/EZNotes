@@ -1,4 +1,4 @@
-package com.vm.eznotes
+package com.vm.eznotes.models
 
 class Notes {
     companion object{
@@ -10,7 +10,7 @@ class Notes {
             }
             return false
         }
-        fun getNoteItemByName(str : String) : Note{
+        fun getNoteItemByName(str : String) : Note {
             val iterator = Items.iterator()
             iterator.forEach { note ->
                 if(note.Name == str) return note

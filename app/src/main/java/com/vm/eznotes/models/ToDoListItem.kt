@@ -1,4 +1,4 @@
-package com.vm.eznotes
+package com.vm.eznotes.models
 
 class ToDoListItem {
     var Checked : Boolean = false
