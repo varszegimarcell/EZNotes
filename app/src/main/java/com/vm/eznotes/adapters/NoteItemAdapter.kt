@@ -15,10 +15,10 @@ import com.vm.eznotes.models.ToDoList
 class NoteItemAdapter(val context : Context, val itemsList : List<Note>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var infater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        var inflater : LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var gridView : View
         if (convertView == null){
-            gridView = infater.inflate(R.layout.note_item_view, null)
+            gridView = inflater.inflate(R.layout.note_item_view, null)
             var textview : TextView = gridView.findViewById(R.id.note_item_name)
             textview.setText(itemsList[position].Name)
             var imageView : ImageView = gridView.findViewById(R.id.note_item_image)
