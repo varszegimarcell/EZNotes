@@ -11,6 +11,8 @@ import android.widget.TextView
 import com.vm.eznotes.adapters.NoteItemAdapter
 import com.vm.eznotes.models.Notes
 import com.vm.eznotes.R
+import com.vm.eznotes.models.TextNote
+import com.vm.eznotes.models.ToDoList
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,9 +37,17 @@ class MainActivity : AppCompatActivity() {
 
         notesGrid.setOnItemClickListener{adapter, view, pos, id ->
             val name = view.findViewById<TextView>(R.id.note_item_name).text
-            val intent = Intent(this, ViewTextNoteActivity::class.java)
-            intent.putExtra("name", name.toString())
-            startActivity(intent)
+            val item = Notes.getNoteItemByName(name.toString())
+            if(item is TextNote){
+                val intent = Intent(this, ViewTextNoteActivity::class.java)
+                intent.putExtra("name", name.toString())
+                startActivity(intent)
+            }
+            if(item is ToDoList){
+                val intent = Intent(this, ViewTodoListActivity::class.java)
+                intent.putExtra("name", name.toString())
+                startActivity(intent)
+            }
         }
 
         fab.setOnClickListener { view ->

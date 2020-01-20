@@ -30,13 +30,17 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_anchor="@+id/constraintLayout"
+            app:layout_anchorGravity="center"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:context=".activities.ViewTextNoteActivity"
             tools:showIn="@layout/activity_view_text_note">
 
             <ScrollView
+                android:id="@+id/scrollView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -51,6 +55,15 @@
 
             </ScrollView>
 
+            <Button
+                android:id="@+id/add_todolist_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_todolist_item"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="fill_parent"
@@ -63,17 +76,17 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_notification"
-                    android:layout_gravity="start"/>
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_notification" />
 
                 <TextView
                     android:id="@+id/notification_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/view_no_notification"
-                    android:textColor="@color/colorNotification"
                     android:layout_gravity="center"
-                    android:text=""/>
+                    android:hint="@string/view_no_notification"
+                    android:text=""
+                    android:textColor="@color/colorNotification" />
 
             </LinearLayout>
 
@@ -89,20 +102,20 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alarm"
-                    android:layout_gravity="start" />
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_alarm" />
 
                 <TextView
                     android:id="@+id/alarm_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:hint="@string/view_no_alarm"
+                    android:text=""
                     android:textColor="@color/colorAlarm"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_gravity="center"
-                    android:text=""/>
+                    app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

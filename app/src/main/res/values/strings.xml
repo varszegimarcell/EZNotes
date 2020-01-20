@@ -24,4 +24,5 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="title_activity_view_todo_list">ViewTodoListActivity</string>
+    <string name="add_todolist_item">Add new item</string>
 </resources>
