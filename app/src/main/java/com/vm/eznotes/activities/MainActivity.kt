@@ -27,13 +27,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
-        val ListType = object : TypeToken<MutableList<Note?>?>() {}.type
-        val json = sharedPref.getString(getString(R.string.pref_key), "")
-        if(json != ""){
-            Notes.Items = Gson().fromJson(json!!, ListType)
+        if(Notes.Items.isEmpty()){
+            val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
+            val ListType = object : TypeToken<MutableList<Note?>?>() {}.type
+            val json = sharedPref.getString(getString(R.string.pref_key), "")
+            if(json != ""){
+                Notes.Items = Gson().fromJson(json!!, ListType)
+            }
         }
-
 
         var notesGrid : GridView = findViewById(R.id.NotesGrid)
 
