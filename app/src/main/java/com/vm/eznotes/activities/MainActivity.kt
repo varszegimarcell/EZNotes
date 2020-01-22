@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             val intent = Intent(this, AddNoteActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
